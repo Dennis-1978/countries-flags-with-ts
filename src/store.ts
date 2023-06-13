@@ -16,8 +16,8 @@ export const store = configureStore({
         details: detailsReducer,
     },
     devTools: true,
-    middleware: getDefaultMiddlware =>
-        getDefaultMiddlware({
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
             thunk: {
                 extraArgument: {
                     client: axios,
@@ -30,4 +30,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export const useAppDispatch = useDispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch;
